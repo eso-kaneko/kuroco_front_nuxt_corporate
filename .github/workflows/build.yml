@@ -21,7 +21,7 @@ jobs:
       - name: "Get branch name and sha"
         id: get_branch
         run: |
-          PR=$(curl -H "X-Kuroco-Auth: token ac2569cb577b4a2df906ed7f2eaa8584" https://neko.g.kuroco.app/direct/menu/github/?pr=${{ github.event.issue.pull_request.url }})
+          PR=$(curl -H "X-Kuroco-Auth: token 03a5b0db4a7bb5eb60118459aba0b4d2" https://nekonorakuen.g.kuroco.app/direct/menu/github/?pr=${{ github.event.issue.pull_request.url }})
           echo "branch=$(echo $PR | jq -r '.ref')" >> $GITHUB_OUTPUT
           echo "sha=$(echo $PR | jq -r '.sha')" >> $GITHUB_OUTPUT
       - name: Checkout Repo
@@ -59,9 +59,9 @@ jobs:
       - name: Webhook
         uses: diverta/workflow-webhook@v3
         env:
-          webhook_url: "https://neko.g.kuroco.app/direct/menu/github/"
-          webhook_secret: "ac2569cb577b4a2df906ed7f2eaa8584"
-          data: '{"single_zip":"1","domain":"neko.g.kuroco-front.app","pr":"${{ github.event.issue.pull_request.url }}",  "repository":"${{ github.repository }}", "run_id":"${{ github.run_id }}", "hash":"${{ steps.get_branch.outputs.sha }}"}'
+          webhook_url: "https://nekonorakuen.g.kuroco.app/direct/menu/github/"
+          webhook_secret: "03a5b0db4a7bb5eb60118459aba0b4d2"
+          data: '{"single_zip":"1","domain":"nekonorakuen.g.kuroco-front.app","pr":"${{ github.event.issue.pull_request.url }}",  "repository":"${{ github.repository }}", "run_id":"${{ github.run_id }}", "hash":"${{ steps.get_branch.outputs.sha }}"}'
           
   #for Push
   pushed_build:
@@ -100,6 +100,6 @@ jobs:
       - name: Webhook
         uses: diverta/workflow-webhook@v3
         env:
-          webhook_url: "https://neko.g.kuroco.app/direct/menu/github/"
-          webhook_secret: "ac2569cb577b4a2df906ed7f2eaa8584"
-          data: '{"single_zip":"1","domain":"neko.g.kuroco-front.app", "repository":"${{ github.repository }}", "run_id":"${{ github.run_id }}", "hash":"${{ github.sha }}"}'
+          webhook_url: "https://nekonorakuen.g.kuroco.app/direct/menu/github/"
+          webhook_secret: "03a5b0db4a7bb5eb60118459aba0b4d2"
+          data: '{"single_zip":"1","domain":"nekonorakuen.g.kuroco-front.app", "repository":"${{ github.repository }}", "run_id":"${{ github.run_id }}", "hash":"${{ github.sha }}"}'
