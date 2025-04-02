@@ -21,6 +21,11 @@
         <div class="l-header__nav__inner">
           <ul class="l-header__nav__list">
             <li class="l-header__nav__list__item">
+              <NuxtLink to="/koneko/" @click.native="Drawer = false"
+                >仔猫一覧</NuxtLink
+              >
+            </li>
+            <li class="l-header__nav__list__item">
               <NuxtLink to="/company/" @click.native="Drawer = false"
                 >企業情報</NuxtLink
               >
